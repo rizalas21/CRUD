@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CRUD (Cread, Read, Update, Delete)</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/util.js"></script>
+</head>
+<body>
+    <h2>JSON CRUD (Cread, Read, Update, Delete)</h2>
+    <a href="/add" class="list-create">Create</a>
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Birthdate</th>
+                <th>Married</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% obj.forEach((siswa, index)=> {%>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= siswa.name %></td>
+                    <td><%= siswa.height %></td>
+                    <td><%= siswa.weight %></td>
+                    <td><%= siswa.birthdate %></td>
+                    <td><%= siswa.married ? 'Yes': 'Not Yet'%></td>
+                    <td><a href="/edit/<%= index %>">Update</a>&nbsp;<a href="/delete/<%= index %>" onclick="return confirmation()">Delete</a></td>
+                </tr>
+                <% }) %>    
+        </tbody>
+    </table>
+</body>
+</html>
